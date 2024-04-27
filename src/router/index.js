@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
 import { PUBLIC_LAYOUT } from "@/constants/index.js";
 
@@ -7,11 +6,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    // Nên thêm các dữ liệu bổ sung vào prop meta
-    meta: {
-      layout: PUBLIC_LAYOUT.default,
-    },
-    component: HomeView,
+    component: () => import("../views/HomeView.vue"),
   },
   {
     path: "/about",

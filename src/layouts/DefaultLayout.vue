@@ -1,4 +1,10 @@
+<script setup>
+import HeaderNav from "@/components/HeaderNav.vue";
+</script>
+
 <template>
-  <h1>Default Layout Babe !!!</h1>
+  <div class="flex flex-col min-h-screen bg-weather-primary">
+    <header-nav />
+  </div>
   <slot />
 </template>
