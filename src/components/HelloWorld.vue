@@ -8,7 +8,9 @@
         >vue-cli documentation</a
       >.
     </p>
-    <h3 class="text-3xl font-bold underline">Installed CLI Plugins</h3>
+    <h3 class="text-3xl font-bold underline font-ubuntu">
+      Installed CLI Plugins
+    </h3>
     <font-awesome-icon icon="fa-solid fa-envelope" />
     <ul>
       <li>
