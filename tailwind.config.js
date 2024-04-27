@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  // Những định dạng file mà tailwind có thể ảnh hưởng
+  content: ["./src/**/*.{html,vue,js}"],
   theme: {
     extend: {},
   },
