@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "weather-primary": "#0066BA",
+        "weather-primary": "#fdfbfb",
         "weather-secondary": "#004E71",
       },
       fontFamily: {
@@ -14,6 +14,14 @@ module.exports = {
         // sans-serif khác.
         ubuntu: ["Ubuntu, sans-serif"],
       },
+    },
+    container: {
+      padding: "2rem",
+      center: true,
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
     },
   },
   plugins: [],
