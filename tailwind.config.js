@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         "weather-primary": "#fdfbfb",
-        "weather-secondary": "#004E71",
+        "weather-secondary": "#cac8c8",
       },
       fontFamily: {
         // Áp dụng font chữ Ubuntu.

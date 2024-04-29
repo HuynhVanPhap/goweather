@@ -5,6 +5,6 @@ import HeaderNav from "@/components/HeaderNav.vue";
 <template>
   <div class="flex flex-col min-h-screen bg-weather-primary">
     <header-nav />
+    <slot />
   </div>
-  <slot />
 </template>
