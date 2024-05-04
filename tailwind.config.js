@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "weather-primary": "#fdfbfb",
-        "weather-secondary": "#cac8c8",
+        "weather-primary": "rgb(186 230 253)",
+        "weather-secondary": "rgb(250 250 250)",
       },
       fontFamily: {
         // Áp dụng font chữ Ubuntu.
