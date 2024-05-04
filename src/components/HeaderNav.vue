@@ -1,8 +1,13 @@
 <script setup>
 import { ref } from "vue";
+import { uid } from "uid";
+import { useRoute, useRouter } from "vue-router";
 import BaseModal from "./BaseModal.vue";
 
 const modalActive = ref(false);
+const listLocations = ref([]);
+const route = useRoute();
+const router = useRouter();
 
 function toggleModal() {
   modalActive.value = !modalActive.value;
@@ -10,6 +15,31 @@ function toggleModal() {
 
 function handleCloseModal() {
   modalActive.value = false;
+}
+
+function handleAddNewLocation() {
+  if (localStorage.getItem("listLocations")) {
+    listLocations.value = JSON.parse(localStorage.getItem("listLocations"));
+  }
+
+  const location = {
+    id: uid(),
+    country: route.params.country,
+    location: route.params.location,
+    coords: {
+      lat: route.query.lat,
+      lon: route.query.lon,
+    },
+  };
+
+  listLocations.value.push(location);
+
+  localStorage.setItem("listLocations", JSON.stringify(listLocations.value));
+
+  let query = Object.assign({}, route.query);
+  delete query.preview;
+  query.id = location.id;
+  router.replace({ query });
 }
 </script>
 
@@ -20,8 +50,14 @@ function handleCloseModal() {
     >
       <router-link :to="{ name: 'home' }">
         <div class="flex items-center gap-3 flex-1">
-          <font-awesome-icon icon="fa-solid fa-sun" class="tex-2xl" />
-          <p class="text-2xl">The Local Weather</p>
+          <font-awesome-icon
+            icon="fa-solid fa-sun"
+            class="tex-2xl text-orange-400"
+          />
+          <p class="text-2xl">
+            <span class="font-bold text-weather-secondary">Go</span
+            ><span class="font-light text-blue-950">WEATHER</span>
+          </p>
         </div>
       </router-link>
 
@@ -34,6 +70,8 @@ function handleCloseModal() {
         <font-awesome-icon
           icon="fa-solid fa-plus"
           class="tex-xl cursor-pointer"
+          @click="handleAddNewLocation"
+          v-if="route.query.preview"
         />
       </div>
 

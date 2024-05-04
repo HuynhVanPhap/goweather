@@ -9,18 +9,26 @@ const routes = [
     component: () => import("../views/HomeView.vue"),
   },
   {
-    path: "/about",
-    name: "about",
-    // Nên thêm các dữ liệu bổ sung vào prop meta
+    path: "/weather/:country/:location",
+    name: "locationView",
     meta: {
       layout: PUBLIC_LAYOUT.default,
     },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: () => import("../views/LocationView.vue"),
   },
+  // {
+  //   path: "/about",
+  //   name: "about",
+  //   // Nên thêm các dữ liệu bổ sung vào prop meta
+  //   meta: {
+  //     layout: PUBLIC_LAYOUT.default,
+  //   },
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  // },
 ];
 
 const router = createRouter({
