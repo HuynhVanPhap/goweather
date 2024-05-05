@@ -55,6 +55,7 @@ function previewCity(searchResult) {
     </div>
 
     <div class="flex flex-col gap-4">
+      <!-- <hr class="border-weather-secondary border w-full" /> -->
       <Suspense>
         <location-list />
         <template #fallback>
