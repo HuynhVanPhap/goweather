@@ -11,6 +11,20 @@ const layout = computed(() => route.meta.layout || PUBLIC_LAYOUT.default);
 
 <template>
   <component :is="layout">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition name="page" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
   </component>
 </template>
+
+<style>
+.page-enter-active {
+  transition: 600ms ease all;
+}
+
+.page-enter-from {
+  opacity: 0;
+}
+</style>

@@ -6,12 +6,16 @@ const routes = [
   {
     path: "/",
     name: "home",
+    meta: {
+      title: "Home",
+    },
     component: () => import("../views/HomeView.vue"),
   },
   {
     path: "/weather/:country/:location",
     name: "locationView",
     meta: {
+      title: "Location",
       layout: PUBLIC_LAYOUT.default,
     },
     component: () => import("../views/LocationView.vue"),
@@ -34,6 +38,15 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `${
+    to.params.location
+      ? `${to.params.location}, ${to.params.country}`
+      : to.meta.title
+  } | GoWEATHER`;
+  next();
 });
 
 export default router;
